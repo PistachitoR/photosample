@@ -1,0 +1,103 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    
+    
+    <style type="text/css">
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+        
+        .form-signin {
+            max-width: 300px;
+            padding: 19px 29px 29px;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+        }
+        
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+        
+        .form-signin input[type="text"],
+        .form-signin input[type="password"] {
+            font-size: 16px;
+            height: auto;
+            margin-bottom: 15px;
+            padding: 7px 9px;
+        }
+        
+        .masthead img {
+            width: 100%;
+        }
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <div class="masthead">
+        <img src="https://lh3.googleusercontent.com/proxy/snHcutZ99tgjdUA8bQyadpQgOiXOurJdL_r_AgtYtHax0IElW73OGPFCjQykVhB-aPHPCvmjCzDC7YJBPwLW8chf1Y0GC9M=w426-h237"
+        />
+    </div>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <form action="/upload" enctype="multipart/form-data" method="post">
+                    <h3> Cargar imagen </h3>
+                    <input type="text" class="form-control" name="fTitle" value="Title">
+                    <input type="text" class="form-control" name="fDescription" value="Description">
+                    <input type="file" class="btn btn-default btn-file " name="upload" multiple="multiple">
+                    <input class="btn btn-large btn-primary" type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <form action="displayImage" method="post">
+                    <h3> Buscar imagen </h3>
+                    <input type="text" class="form-control" name="codigo" value="Titulo">
+                    <button class="btn btn-large btn-primary" name="Display" value="Display">Display</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <!-- /container -->
+</body>
+<!-- Le javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/bootstrap-transition.js"></script>
+<script src="../assets/js/bootstrap-alert.js"></script>
+<script src="../assets/js/bootstrap-modal.js"></script>
+<script src="../assets/js/bootstrap-dropdown.js"></script>
+<script src="../assets/js/bootstrap-scrollspy.js"></script>
+<script src="../assets/js/bootstrap-tab.js"></script>
+<script src="../assets/js/bootstrap-tooltip.js"></script>
+<script src="../assets/js/bootstrap-popover.js"></script>
+<script src="../assets/js/bootstrap-button.js"></script>
+<script src="../assets/js/bootstrap-collapse.js"></script>
+<script src="../assets/js/bootstrap-carousel.js"></script>
+<script src="../assets/js/bootstrap-typeahead.js"></script>
+
+</html>
