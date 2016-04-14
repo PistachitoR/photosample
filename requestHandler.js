@@ -122,27 +122,70 @@ function displayImage(response, request) {
                     Title: fields.codigo
                 })
             )
-        ).stream().
-            on("data", function(document) {
-                console.log(document);
-
-                console.log("PATH: " + document.content.Path);
-
-                fs.readFile(document.content.Path +".jpg", "binary", function(error, file) {
-                    if (error) {
-                        response.writeHead(500, { "Content-Type": "text/plain" });
-                        response.write(error + "\n");
-                        response.end();
-                    } else {
-                        console.log("imagen encontrada");
-                        response.writeHead(200, { "Content-Type": "image/jpg" });
-                        response.write(file, "binary");
-                        response.end();
+        ).result(function(documents) {
+            console.log("holaholaholaholaholaholaholaholaholaholahola");
+            if (documents!=undefined) {
+                console.log("holaholaholaholaholaholaholaholaholaholahola");
+                documents.forEach(function(document) {
+                    if (document != undefined) {
+                                        console.log("holaholaholaholaholaholaholaholaholaholahola");
+                        console.log(document);
+                        console.log("PATH: " + document.content);
+                        fs.readFile(document.content.Path + ".jpg", "binary", function(error, file) {
+                            if (error) {
+                                response.writeHead(500, { "Content-Type": "text/plain" });
+                                response.write(error + "\n");
+                                response.end();
+                            } else {
+                                console.log("imagen encontrada");
+                                response.writeHead(200, { "Content-Type": "image/jpg" });
+                                response.write(file, "binary");
+                                response.end();
+                            }
+                        });
                     }
-                });
-            }).on("error", function(error) {
-                console.error(error);
+                })
+            }else{
+                console.log("Code: " + "./photos/************");
+                response.writeHead(202, { "Content-Type": "text/html" });
+                fs.readFile(__dirname + "/theme/" + "404.html", 'utf8', function(err, data) {
+                    response.write(data);
+                });    
+            }
+        }, function(error) {
+            console.log("Code: " + "./photos/************");
+            console.log(document);
+            response.writeHead(202, { "Content-Type": "text/html" });
+            fs.readFile(__dirname + "/theme/" + "404.html", 'utf8', function(err, data) {
+                response.write(data);
             });
+        });
+/*.stream()
+            .on("data", function(document) {
+                console.log("hola");
+                console.log(document);
+                    console.log("PATH: " + document.content);
+                    fs.readFile(document.content.Path + ".jpg", "binary", function(error, file) {
+                        if (error) {
+                            response.writeHead(500, { "Content-Type": "text/plain" });
+                            response.write(error + "\n");
+                            response.end();
+                        } else {
+                            console.log("imagen encontrada");
+                            response.writeHead(200, { "Content-Type": "image/jpg" });
+                            response.write(file, "binary");
+                            response.end();
+                        }
+                    });
+            })
+            .on("error", function(error) {
+                console.log("Code: " + "./photos/************");
+                console.log(document);
+                response.writeHead(202, { "Content-Type": "text/html" });
+                fs.readFile(__dirname + "/theme/" + "404.html", 'utf8', function(err, data) {
+                    response.write(data);
+                });
+            });*/
     });
 }
 
